@@ -9,6 +9,7 @@ build_image:
   stage: build_image
   tags:
     - shell
+    - pm01
   only:
     - tags
     - triggers
@@ -20,6 +21,7 @@ push_image:
   stage: push_image
   tags:
     - shell
+    - pm01
   only:
     - tags
     - triggers
@@ -31,6 +33,7 @@ deploy:
   stage: deploy
   tags:
     - shell
+    - pm01
   only:
     - tags
     - triggers
