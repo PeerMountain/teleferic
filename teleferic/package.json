@@ -1,0 +1,19 @@
+{
+  "name": "node-teleferic",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "production": "NODE_ENV=$ENVIRONMENT node src/index.js",
+    "development": "NODE_ENV=$ENVIRONMENT nodemon src/index.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "amqp": "^0.2.6",
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.13.0",
+    "moment": "^2.21.0",
+    "msgpack": "^1.0.2",
+    "nodemon": "^1.15.1"
+  }
+}

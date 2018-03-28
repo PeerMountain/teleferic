@@ -1,0 +1,35 @@
+version: "3.4"
+
+services:
+  teleferic:
+    build:
+      context: ./teleferic/
+      args:
+        - PORT=8000
+    image: 'peer-mountain01:5005/teleferic-mvp/teleferic:${TAG:-latest}'
+    ports:
+      - 8000:8000
+    environment:
+      - ENVIRONMENT=PRODUCTION
+      - AUTHORIZER_ENDPOINT_HOSTNAME=authorizer
+      - AUTHORIZER_ENDPOINT_PORT=8000
+      - GRAPHIQL=TRUE
+      - PORT=8000
+    networks:
+      - teleferic
+      - authorizer
+
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: 128M
+      restart_policy:
+          condition: "on-failure"
+
+networks:
+  teleferic:
+    external: true
+  authorizer:
+    external: true
