@@ -1,0 +1,17 @@
+version: "3.4"
+
+services:
+  teleferic:
+    build:
+      context: ./teleferic/
+      args:
+        - PORT=8000
+    image: 'teleferic:${TAG:-latest}'
+    command: ["npm", "run", "development"]
+    environment:
+      - ENVIRONMENT=DEVELOPMENT
+      - GRAPHIQL=TRUE
+    volumes:
+      - ./teleferic:/app/
+      # Makes node_modules empty inside container
+      - /app/node_modules
