@@ -11,9 +11,11 @@
     "amqp": "^0.2.6",
     "express": "^4.16.2",
     "express-graphql": "^0.6.11",
+    "express-winston": "^2.5.0",
     "graphql": "^0.13.0",
     "moment": "^2.21.0",
     "msgpack": "^1.0.2",
-    "nodemon": "^1.15.1"
+    "nodemon": "^1.15.1",
+    "winston": "^2.4.1"
   }
 }

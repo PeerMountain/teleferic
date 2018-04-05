@@ -15,7 +15,6 @@ const request = (endpointName, data, httpMethod) => new Promise((resolve, reject
             "Content-Type" : "application/json"
         }
     }
-    console.log(path)
     let options = {
         host: AUTHORIZER_ENDPOINT_HOSTNAME,
         port: AUTHORIZER_ENDPOINT_PORT,
@@ -23,7 +22,6 @@ const request = (endpointName, data, httpMethod) => new Promise((resolve, reject
         method: httpMethod,
         headers: headers
     }
-    console.log(options)
     let request = http.request(options, (response) => {
         let data = ""
         response.on('error', e => {
