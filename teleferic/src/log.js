@@ -1,7 +1,7 @@
 const winston = require('winston')
 const expressWinston = require('express-winston')
 
-const logger = expressWinston.logger({
+const loggerMiddleware = expressWinston.logger({
     transports: [
         new winston.transports.Console({
             json: false,
@@ -10,7 +10,16 @@ const logger = expressWinston.logger({
     ],
 })
 
-const errorLogger = expressWinston.errorLogger({
+const errorLoggerMiddleware = expressWinston.errorLogger({
+    transports: [
+        new winston.transports.Console({
+            json: false,
+            timestamp: true,
+        })
+    ],
+})
+
+const logger = new winston.Logger({
     transports: [
         new winston.transports.Console({
             json: false,
@@ -21,6 +30,7 @@ const errorLogger = expressWinston.errorLogger({
 
 
 module.exports = {
-    logger,
-    errorLogger
+    loggerMiddleware,
+    errorLoggerMiddleware,
+    logger
 }

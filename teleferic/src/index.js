@@ -1,8 +1,8 @@
 const express = require('express')
 const graphqlHTTPMiddleware = require('express-graphql')
 const {
-    logger,
-    errorLogger
+    loggerMiddleware,
+    errorLoggerMiddleware
 } = require('./log')
 
 const schema = require('./schema')
@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000
 
 var server = express()
 
-server.use(logger)
+server.use(loggerMiddleware)
 
 server.use(
     '/teleferic',
@@ -23,7 +23,7 @@ server.use(
     }))
 )
 
-server.use(errorLogger)
+server.use(errorLoggerMiddleware)
 
 server.listen(PORT, err => {
     if (err) {
