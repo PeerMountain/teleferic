@@ -29,7 +29,7 @@ push_image:
 deploy:
   script:
     - export TAG="${CI_BUILD_REF_NAME}"
-    - docker stack deploy -c docker-compose.yml teleferic
+    - docker stack deploy -c docker-compose.yml --with-registry-auth teleferic
   stage: deploy
   tags:
     - shell
