@@ -1,9 +1,9 @@
 const winston = require('winston')
-const expressWinston = require('winston-express')
+const expressWinston = require('express-winston')
 
 const logger = expressWinston.logger({
     transports: [
-        new winston.Transports.Console({
+        new winston.transports.Console({
             json: false,
             timestamp: true,
         })
@@ -12,7 +12,7 @@ const logger = expressWinston.logger({
 
 const errorLogger = expressWinston.errorLogger({
     transports: [
-        new winston.Transports.Console({
+        new winston.transports.Console({
             json: false,
             timestamp: true,
         })
