@@ -8,12 +8,15 @@ const AUTHORIZER_ENDPOINT_PORT = process.env.AUTHORIZER_ENDPOINT_PORT
 const request = (endpointName, data, httpMethod) => new Promise((resolve, reject) => {
     let path, headers
     data = data || {}
-    if (httpMethod === 'GET' || !httpMethod)
-        path = '/' + endpointName + '?' + querystring.stringify(data)
-    else {
-        path = endpointName
+
+    if (httpMethod === 'GET' || !httpMethod) {
+        queryString = querystring.stringify(data)
+        path = `/${endpointName}?${queryString}`
+    } else {
+        path = `/${endpointName}`
         headers = {
-            "Content-Type" : "application/json"
+            'Content-Type' : 'application/json',
+            'Content-Length': JSON.stringify(data).length
         }
     }
     logger.info(`Request path is ${path}`)
