@@ -19,8 +19,7 @@ const request = (endpointName, data, httpMethod) => new Promise((resolve, reject
             'Content-Length': JSON.stringify(data).length
         }
     }
-    logger.info(`Request path is ${path}`)
-    logger.info(`Request headers are ${headers}`)
+
     let options = {
         host: AUTHORIZER_ENDPOINT_HOSTNAME,
         port: AUTHORIZER_ENDPOINT_PORT,
@@ -50,8 +49,6 @@ const request = (endpointName, data, httpMethod) => new Promise((resolve, reject
         })
     })
     if (httpMethod && httpMethod !== 'GET'){
-        logger.info(`Request method is POST, writing data to request body.`)
-        logger.info(JSON.stringify(data))   
         request.write(JSON.stringify(data))
     }
     request.end()
