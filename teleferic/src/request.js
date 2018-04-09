@@ -27,32 +27,37 @@ const request = (endpointName, data, httpMethod) => new Promise((resolve, reject
         method: httpMethod,
         headers: headers
     }
+
     logger.info(JSON.stringify(options))
-    let request = http.request(options, (response) => {
-        let data = ""
+    logger.info(JSON.stringify(data))
+
+    let sendRequest = http.request(options, (response) => {
+        let return_data = ''
         response.on('error', e => {
+            logger.error(e)
             reject(e.message)
         })
         response.on('data', chunk => {
-            data += chunk
+            return_data += chunk
         })
         response.on('end', e => {
             if (response.statusCode >= 400)
                 try {
-                    reject(JSON.parse(data).error)
+                    reject(JSON.parse(return_data).error)
                 } catch (e) {
-                    reject(data)
+                    logger.error(return_data)
+                    reject(return_data)
                 }
             else {
-                resolve(JSON.parse(data))
+                resolve(JSON.parse(return_data))
             }
         })
     })
     if (httpMethod && httpMethod !== 'GET'){
-        request.write(JSON.stringify(data))
+        sendRequest.write(JSON.stringify(data))
     }
-    request.end()
 
+    sendRequest.end()
 })
 
 module.exports = request
