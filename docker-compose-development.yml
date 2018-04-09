@@ -10,8 +10,19 @@ services:
     command: ["npm", "run", "development"]
     environment:
       - ENVIRONMENT=DEVELOPMENT
+      - PORT=8000
       - GRAPHIQL=TRUE
+      - AUTHORIZER_ENDPOINT_HOSTNAME=authorizer
+      - AUTHORIZER_ENDPOINT_PORT=8000
     volumes:
       - ./teleferic:/app/
       # Makes node_modules empty inside container
       - /app/node_modules
+    ports:
+      - 8000:8000
+    networks:
+      - mvp
+
+networks:
+  mvp:
+    external: true
