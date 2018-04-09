@@ -14,13 +14,12 @@ const sendMessage = {
         }
     },
     resolve: (obj, {envelope}) => new Promise((resolve, reject) => {
-        console.log(envelope)
         request(
             'send_message',
             {
                 envelope: envelope
             },
-            "POST"
+            'POST'
         ).then(resolve, reject)
     })
 }
