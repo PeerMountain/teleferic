@@ -6,8 +6,7 @@ const AUTHORIZER_ENDPOINT_HOSTNAME = process.env.AUTHORIZER_ENDPOINT_HOSTNAME
 const AUTHORIZER_ENDPOINT_PORT = process.env.AUTHORIZER_ENDPOINT_PORT
 
 const request = (endpointName, data, httpMethod) => new Promise((resolve, reject) => {
-    logger.info(`Requesting data from ${endpointName}, request data is ${data}`)
-    var path, headers
+    let path, headers
     data = data || {}
     if (httpMethod === 'GET' || !httpMethod)
         path = '/' + endpointName + '?' + querystring.stringify(data)
