@@ -7,7 +7,7 @@ const {
 } = require('../types/key')
 const Persona = require('../types/persona')
 
-const request = require('../../request')
+const {getPersona} = require('../../authorizerRequest')
 
 const persona = {
     type: Persona,
@@ -22,14 +22,7 @@ const persona = {
             type: GraphQLString
         }
     },
-    resolve: (obj, args) => new Promise((resolve, reject) => {
-        request(
-            'persona',
-            args,
-        ).then(data => resolve(data),
-            err => reject(err)
-        )
-    })
+    resolve: (obj, args) => getPersona(args)
 }
 
 module.exports = persona

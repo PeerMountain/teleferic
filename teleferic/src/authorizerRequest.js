@@ -60,4 +60,49 @@ const request = (endpointName, data, httpMethod) => new Promise((resolve, reject
     sendRequest.end()
 })
 
-module.exports = request
+const sendMessage = envelope =>
+    request(
+        'send_message',
+        {
+            envelope: envelope
+        },
+        'POST'
+    )
+
+const getMessages = args =>
+    request(
+        'messages',
+        args,
+        'GET'
+    )
+
+const getTelefericData = () =>
+    request(
+        'teleferic',
+        {},
+        'GET'
+    )
+
+const getPersona = args =>
+    request(
+        'persona',
+        args,
+        'GET'
+    )
+
+const getObject = hash =>
+    request(
+        'objects',
+        {
+            object_hash: hash
+        },
+        'GET'
+    )
+
+module.exports = {
+    sendMessage,
+    getMessages,
+    getPersona,
+    getTelefericData,
+    getObject
+}

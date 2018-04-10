@@ -9,7 +9,7 @@ const {
     Date
 } = require('../types/date')
 
-const request = require('../../request')
+const {getMessages} = require('../../authorizerRequest')
 
 const messageByHash = {
     type: new GraphQLList(MessageEnvelope),
@@ -18,18 +18,7 @@ const messageByHash = {
             type: new GraphQLNonNull(Date)
         }
     },
-    resolve: (root, args, options, ast) => {
-        return new Promise((resolve, reject) => {
-            request(
-                'messages',
-                {
-                    date: args.date
-                },
-            ).then(data => resolve(data),
-                err => reject(err)
-            )
-        })
-    }
+    resolve: (root, args, options, ast) => getMessages({hash: args.messageHash})
 }
 
 module.exports = messageByHash
