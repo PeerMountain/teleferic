@@ -1,12 +1,10 @@
 const Teleferic = require('../types/teleferic')
 
-const request = require('../../request')
+const {getTelefericData} = require('../../authorizerRequest')
 
 const teleferic = {
     type: Teleferic,
-    resolve: () => new Promise((resolve, reject) => {
-        request('teleferic').then(data => resolve(data), err => reject(err))
-    })
+    resolve: getTelefericData
 }
 
 module.exports = teleferic

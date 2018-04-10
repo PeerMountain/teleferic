@@ -4,27 +4,18 @@ const {
 } = require('graphql')
 
 const {MessageEnvelopeInput} = require('../types/message')
-const request = require('../../request')
+var {sendMessage} = require('../../authorizerRequest')
 
-const sendMessage = {
+const sendMessageMutation = {
     type: MessageEnvelope,
     args: {
         envelope: {
             type: new GraphQLNonNull(MessageEnvelopeInput)
         }
     },
-    resolve: (obj, {envelope}) => new Promise((resolve, reject) => {
-        console.log(envelope)
-        request(
-            'send_message',
-            {
-                envelope: envelope
-            },
-            "POST"
-        ).then(resolve, reject)
-    })
+    resolve: (obj, {envelope}) => sendMessage(envelope)
 }
 
 module.exports = {
-    sendMessage
+    sendMessage: sendMessageMutation
 }

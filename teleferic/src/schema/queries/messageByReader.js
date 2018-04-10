@@ -7,7 +7,7 @@ const {
 const {MessageEnvelope} = require('../types/message')
 const Address = require('../types/address')
 
-const request = require('../../request')
+const {getMessages} = require('../../authorizerRequest')
 
 const messageByReader = {
     type: MessageEnvelope,
@@ -17,14 +17,11 @@ const messageByReader = {
         }
     },
     resolve: (root, args, options, ast) => {
-        return new Promise((resolve, reject) => {
-            request(
-                'messages',
-                {
-                    reader: args.reader
-                },
-            ).then(resolve, reject)
-        })
+        return getMessages(
+            {
+                reader: args.reader
+            }
+        )
     }
 }
 

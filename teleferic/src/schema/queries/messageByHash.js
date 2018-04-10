@@ -9,7 +9,7 @@ const {
     SHA256Hash
 } = require('../types/hashes')
 
-const request = require('../../request')
+const {getMessages} = require('../../authorizerRequest')
 
 const messageByHash = {
     type: MessageEnvelope,
@@ -20,14 +20,11 @@ const messageByHash = {
         }
     },
     resolve: (root, args, options, ast) => {
-        return new Promise((resolve, reject) => {
-            request(
-                'messages',
-                {
-                    message_hash: args.messageHash
-                },
-            ).then(resolve, reject)
-        })
+        return getMessages(
+            {
+                message_hash: args.messageHash
+            }
+        )
     }
 }
 
