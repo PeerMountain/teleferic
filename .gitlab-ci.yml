@@ -30,7 +30,7 @@ deploy_teleferic:
   script:
     - export TAG="${CI_BUILD_REF_NAME}"
     - docker stack deploy -c docker-compose.yml --with-registry-auth teleferic
-  stage: deploy
+  stage: deploy_teleferic
   tags:
     - shell
     - pm01
@@ -42,7 +42,7 @@ deploy_nginx:
   script:
     - export TAG="${CI_BUILD_REF_NAME}"
     - docker stack deploy -c docker-compose.yml --with-registry-auth nginx
-  stage: deploy
+  stage: deploy_nginx
   tags:
     - shell
     - pm01
