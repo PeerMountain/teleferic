@@ -26,23 +26,11 @@ push_image:
     - tags
     - triggers
 
-deploy_teleferic:
+deploy:
   script:
     - export TAG="${CI_BUILD_REF_NAME}"
     - docker stack deploy -c docker-compose.yml --with-registry-auth teleferic
-  stage: deploy_teleferic
-  tags:
-    - shell
-    - pm01
-  only:
-    - tags
-    - triggers
-
-deploy_nginx:
-  script:
-    - export TAG="${CI_BUILD_REF_NAME}"
-    - docker stack deploy -c docker-compose.yml --with-registry-auth nginx
-  stage: deploy_nginx
+  stage: deploy
   tags:
     - shell
     - pm01
@@ -54,5 +42,4 @@ deploy_nginx:
 stages:
   - build_image
   - push_image
-  - deploy_teleferic
-  - deploy_nginx
+  - deploy
