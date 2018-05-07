@@ -29,7 +29,7 @@ services:
   nginx:
     build:
       context: ./nginx
-    image: 'peer-mountain01:5005/teleferic-mvp/nginx:${TAG:-latest}'
+    image: 'peer-mountain01:5005/teleferic-mvp/teleferic/nginx:${TAG:-latest}'
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
     ports:
