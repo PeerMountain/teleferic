@@ -1,0 +1,21 @@
+{
+  "name": "teleferic2",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alombarte",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.5",
+    "node-forge": "^0.7.5",
+    "virgil-crypto": "^3.0.0-alpha.12"
+  },
+  "devDependencies": {
+    "standard": "^11.0.1"
+  }
+}
