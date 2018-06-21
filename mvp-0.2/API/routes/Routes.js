@@ -9,13 +9,16 @@ module.exports = function(app) {
 	.post(userController.create_a_user);
 
 	app.route('/users/:userId')
-	.get(userController.read_a_user)
+	.get(userController.http_read_a_user)
 	.put(userController.update_a_user)
 	.delete(userController.delete_a_user);
 
 	app.route('/user_by_pk/:userId')
 	.get(userController.read_a_user_by_pk);
 
+
+	app.route('/user_by_address/:address')
+	.get(userController.read_a_user_by_address);
 
 	app.route('/generateKey')
 	.get(keyController.generateKeypair);
@@ -32,8 +35,7 @@ module.exports = function(app) {
 	.post(invitationController.create_a_invitation);
 
 	app.route('/invitations/:invitationId')
-	.get(invitationController.read_a_invitation)
+	.get(invitationController.http_read_a_invitation)
 	.put(invitationController.update_a_invitation)
 	.delete(invitationController.delete_a_invitation);
-
 };

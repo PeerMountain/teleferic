@@ -8,7 +8,7 @@ var userSchema = new Schema({
 	publicKey: String,
 	cipherKey: String,
 	email: String,
-	invitationID: Number
+	invitationID: String
 });
 
 module.exports = mongoose.model('Users', userSchema);
