@@ -48,8 +48,11 @@ exports.create_a_invitation = function(req, res) {
 
 exports.http_read_a_invitation = function(req, res) {
  Invitation.findById(req.params.invitationId, function(err, invitation) {
-   if (err)
+   if (err){
+     res.status(500);
      res.send(err);
+   }
+   res.status(200);
    res.json(invitation);
  });
 };
@@ -77,8 +80,10 @@ exports.update_a_invitation_disabled = function(invitationID) {
 
 exports.update_a_invitation = function(req, res) {
  Invitation.findOneAndUpdate({_id: req.params.invitationId}, req.body, {new: true}, function(err, invitation) {
-   if (err)
+   if (err){
      res.send(err);
+   }
+   res.status(200);
    res.json(invitation);
  });
 };
@@ -87,8 +92,11 @@ exports.delete_a_invitation = function(req, res) {
  Invitation.remove({
    _id: req.params.invitationId
  }, function(err, invitation) {
-   if (err)
+   if (err){
+     res.status(500);
      res.send(err);
+   }
+   res.status(200);
    res.json({ message: 'Invitation successfully deleted'});
  });
 };
