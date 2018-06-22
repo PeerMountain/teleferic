@@ -53,8 +53,11 @@ exports.create_a_user = function(req, res) {
 
 exports.http_read_a_user = function(req, res) {
  User.findById(req.params.userId, function(err, user) {
-   if (err)
+   if (err){
+     res.status(500);
      res.send(err);
+   }
+   res.status(200);
    res.json(user);
  });
 };
@@ -92,8 +95,10 @@ exports.delete_a_user = function(req, res) {
  User.remove({
    _id: req.params.userId
  }, function(err, user) {
-   if (err)
+   if (err){
+     res.status(500);
      res.send(err);
+   }
+   res.status(200);
    res.json({ message: 'User successfully deleted' });
  });
-};
