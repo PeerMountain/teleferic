@@ -59,7 +59,7 @@ exports.http_read_a_invitation = function(req, res) {
 
 exports.read_a_invitation = function(invitationID) {
   return new Promise( ( resolve, reject ) => {
-   Invitation.find({invitationSender : invitationID}, function(err, invitation) {
+   Invitation.findById(invitationID, function(err, invitation) {
      if (err){
        err.Error = "Error finding invitation";
        resolve(err);

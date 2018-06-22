@@ -18,8 +18,8 @@ exports.create_a_user = function(req, res) {
   invitationController.read_a_invitation(new_user.invitationID).then((invitation) => {
     var verificationResult = keyController.verifyExternal(req.body.message, req.body.message.publicKey, req.body.signature);
     if(verificationResult.verified){
-      if(req.body.pass == invitation[0].pass){
-        if(invitation[0].enabled){
+      if(req.body.pass == invitation.pass){
+        if(invitation.enabled){
           new_user.save(function(err, user) {
             if (err){
               res.status(500);
@@ -28,18 +28,18 @@ exports.create_a_user = function(req, res) {
               res.send(err);
             }else{
               res.status(200);
-              invitationController.update_a_invitation_disabled(invitation[0].invitationSender);
+              invitationController.update_a_invitation_disabled(invitation.invitationSender);
               console.log("User created");
               res.json(user);
             }
           });
         }else{
-          res.status(418);
+          res.status(406);
           console.log("Error the invitation is not enabled.");
           res.json({"Error" : "the invitation is not enabled."});
         }
       }else{
-        res.status(418);
+        res.status(406);
         console.log("Error pass prove not successful.");
         res.json({"Error" : "pass prove not successful."});
       }
