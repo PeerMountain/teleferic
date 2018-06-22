@@ -62,10 +62,17 @@ exports.http_read_a_user = function(req, res) {
  });
 };
 
-exports.read_a_user_by_pk = function(req, res) {
- User.find({publicKey : req.params.userId}, function(err, user) {
-   if (err)
+exports.read_a_user_by_address_http = function(req, res) {
+console.log('entered func');
+ User.find({address : req.params.address}, function(err, user) {
+   console.log('entered');
+   if (err){
+     res.status(500);
+     console.log('error reading user by address');
      res.send(err);
+   }
+   res.status(200);
+   console.log('resturning user');
    res.json(user);
  });
 };
