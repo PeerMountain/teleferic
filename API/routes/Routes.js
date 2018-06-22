@@ -3,6 +3,7 @@ module.exports = function(app) {
 	var userController = require('../controllers/UserController');
 	var keyController = require('../controllers/KeyController');
 	var invitationController = require('../controllers/InvitationController');
+	var initializeController = require('../controllers/InitializeController');
 
 	app.route('/users')
 	.get(userController.list_all_users)
@@ -34,3 +35,8 @@ module.exports = function(app) {
 	.get(invitationController.http_read_a_invitation)
   .put(invitationController.update_a_invitation)//TODO: do the checks
 	.delete(invitationController.delete_a_invitation);
+
+	app.route('/initializeDB')
+	.post(initializeController.initializeDB);
+
+};

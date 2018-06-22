@@ -100,3 +100,20 @@ exports.delete_a_invitation = function(req, res) {
    res.json({ message: 'Invitation successfully deleted'});
  });
 };
+
+exports.create_first_invitation = function() {
+  return new Promise( ( resolve, reject ) => {
+    var new_invitation = new Invitation({
+            "expirationDate": 1561050357,
+            "pass": "invitationMessage",
+            "enabled": "true",
+            "invitationSender": "0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE7"
+        });
+     new_invitation.save(function(err, invitation) {
+       if (err){
+         resolve(err);
+       }
+       resolve(invitation);
+     });
+   });
+};
