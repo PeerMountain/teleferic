@@ -30,7 +30,7 @@ function create_a_user(req, res) {
         var user = await read_a_user_by_address_local(invitation.invitationSender);
         var verificationResult = keyController.verifyExternal(req.body.message, req.body.message.publicKey, req.body.signature);
         if(verificationResult.verified){
-          if(req.body.pass == invitation.pass){
+          if(req.body.message.pass == invitation.pass){
             var hash = crypto.createHash('sha256');
             hash.update(req.body.message.address+user[0].cipherKey);
             console.log(invitation.pass)
