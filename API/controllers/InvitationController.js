@@ -3,6 +3,8 @@ var mongoose = require('mongoose'),
 Invitation = mongoose.model('Invitations'),
 keyController = require('./KeyController'),
 userController = require('./UserController');
+const crypto = require('crypto');
+
 
 exports.list_all_invitations = function(req, res) {
  Invitation.find({}, function(err, invitation) {
@@ -13,15 +15,21 @@ exports.list_all_invitations = function(req, res) {
 };
 
 exports.create_a_invitation = function(req, res) {
-
+(async() => {
   console.log("Creating an invitation...");
-  var new_invitation = new Invitation(req.body.message);
-  userController.read_a_user_by_address(req.body.address).then((verifyUser) => {
-   if(verifyUser.Error == undefined && verifyUser.length > 0){
-     var verificationResult = keyController.verifyExternal(req.body.message, verifyUser[0].publicKey, req.body.signature);
 
+  var receiver = req.body.message.invitationReceiver;
+  var sender = await userController.read_a_user_by_address(req.body.message.invitationSender);
+  var hash = crypto.createHash('sha256');
+  hash.update(receiver + sender[0].cipherKey);
+  console.log("hash(receiverAddress+senderCipherKey)"+receiver + sender[0].cipherKey);
+
+   if(sender.Error == undefined){
+     var verificationResult = keyController.verifyExternal(req.body.message, sender[0].publicKey, req.body.signature);
+     console.log  (verificationResult)
      if(verificationResult.verified){
-
+      req.body.message.pass = hash.digest('hex');
+      var new_invitation = new Invitation(req.body.message);
       new_invitation.save(function(err, invitation) {
         if (err){
           res.status(500);
@@ -40,10 +48,10 @@ exports.create_a_invitation = function(req, res) {
     }
   }else{
     res.status(404);
-    console.log("User does not exist");
-    res.json({"Error" : "User does not exist"});
+    console.log("User address does not exist");
+    res.json({"Error" : "User address does not exist"});
   }
-});
+    })();
 };
 
 exports.http_read_a_invitation = function(req, res) {
@@ -71,7 +79,7 @@ exports.read_a_invitation = function(invitationID) {
 };
 
 exports.update_a_invitation_disabled = function(invitationID) {
- Invitation.findOneAndUpdate({invitationSender: invitationID}, {$set: {enabled : false}}, {new: true}, function(err, invitation) {
+ Invitation.findOneAndUpdate({_id: invitationID}, {$set: {enabled : false}}, {new: true}, function(err, invitation) {
    if (err)
      return (err);
    return (invitation);

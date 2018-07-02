@@ -6,9 +6,9 @@ User = mongoose.model('Users'),
 userController = require('./UserController');
 
 exports.initializeDB = function(req, res) {
-  userController.create_first_user().then((user) => {
+  userController.create_first_user(req.body).then((user) => {
     invitationController.create_first_invitation().then((invitation) => {
-      res.json(user.merge(invitation));
+      res.json(user+invitation);
     });
   }).catch((error) => {
     res.status(406);
