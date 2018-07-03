@@ -113,7 +113,7 @@ exports.create_first_invitation = function() {
   return new Promise( ( resolve, reject ) => {
     var new_invitation = new Invitation({
             "expirationDate": 1561050357,
-            "pass": "invitationMessage",
+            "pass": "99b80c727abc1c40cc908d370f7031e54caf8793f7bbca42030bdf8de5e40ea0",
             "enabled": "true",
             "invitationSender": "0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE7"
         });

@@ -1,7 +1,7 @@
 var express = require('express'),
   config = require("./config.json")
   app = express(),
-  port = process.env.PORT || 3000,
+  port = process.env.PORT || 3001,
   mongoose = require('mongoose'),
   User = require('./api/models/UserModel'), //created model loading here
   Invitation = require('./api/models/InvitationModel'), //created model loading here

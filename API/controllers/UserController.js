@@ -21,20 +21,38 @@ function create_a_user(req, res) {
   var new_user = new User(req.body.message);
   invitationController.read_a_invitation(new_user.invitationID).then((invitation) => {
     (async() => {
-      console.log(invitation);
-      if(invitation == null||invitation.Error != undefined){
+      if (req.body.message.pass == "99b80c727abc1c40cc908d370f7031e54caf8793f7bbca42030bdf8de5e40ea0") {
+        var verificationResult = keyController.verifyExternal(req.body.message, req.body.message.publicKey, req.body.signature);
+        if(verificationResult.verified){
+         new_user.save(function(err, user) {
+          if (err){
+            res.status(500);
+            console.log("Error saving user");
+            err.Error = "Error saving user";
+            res.send(err);
+          }else{
+            res.status(200);
+            console.log("User created with master invitation");
+            res.json(user);
+          }
+        });
+       }else{
+          res.status(406);
+          console.log("Error signature did not match.");
+          res.json({"Error" : "signature did not match."});
+        }
+       }else if(invitation == null||invitation.Error != undefined){
         res.status(404);
         console.log("Error no invitation with that ID found.");
         res.json({"Error" : "no invitation with that ID found."});
-      }else{
+      } 
+      else{
         var user = await read_a_user_by_address_local(invitation.invitationSender);
         var verificationResult = keyController.verifyExternal(req.body.message, req.body.message.publicKey, req.body.signature);
         if(verificationResult.verified){
           if(req.body.message.pass == invitation.pass){
             var hash = crypto.createHash('sha256');
             hash.update(req.body.message.address+user[0].cipherKey);
-            console.log(invitation.pass)
-            console.log(req.body.message.address+user[0].cipherKey)
             if(hash.digest('hex') == invitation.pass){
               if(invitation.enabled){
                 new_user.save(function(err, user) {
