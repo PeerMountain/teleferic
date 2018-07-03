@@ -1,0 +1,1123 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "mvp copy",
+    "description": "TODO: Add Description"
+  },
+  "host": "localhost:3001",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/users/1234": {
+      "put": {
+        "description": "",
+        "summary": "Update a user",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Users1234Put",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateAUserrequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "PUT",
+              "uri": "/users/1234",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"_id\":\"1234\",\"name\":\"username\",\"address\":\"0x12233344de\",\"publicKey\":\"qqqqqqqqwwwwwweeeeeeeee\",\"cipherKey\":\"mckvdmklmdkl\",\"email\":\"userEmail\",\"invitationID\":\"002\"}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Update a user",
+            "x-testDescription": ""
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/users/5b2a81c0dff4b5de799d8b6b": {
+      "get": {
+        "description": "",
+        "summary": "Read a user",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Users5b2a81c0dff4b5de799d8b6bGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/users/5b2a81c0dff4b5de799d8b6b"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Read a user",
+            "x-testDescription": ""
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/generateKey": {
+      "get": {
+        "description": "",
+        "summary": "Generate Keypair",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "GenerateKeyGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/generateKey"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Generate Keypair",
+            "x-testDescription": ""
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/sign": {
+      "post": {
+        "description": "",
+        "summary": "Sign",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "SignPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SignRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/sign",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"message\":{\"name\":\"enrique\",\"address\":\"0x0ad92B0Cfd5E7D4638c94546883fd03254a0\",\"publicKey\":\"-----BEGIN CERTIFICATE-----\\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\\n-----END CERTIFICATE-----\",\"cipherKey\":\"enriquecipherKey\",\"email\":\"enrique@mail.com\",\"invitationID\":\"5b3644e3eed40e530d916d8d\"},\"privateKey\":\"-----BEGIN PRIVATE KEY-----\\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDAHuE3YiIh2R+236gm83NKnAfZHDOwRuSdqoIfz8FFlYigf/V3q8gWLRS+Lp4C5HU+E0HCXPrNEn8j3OnEVF5LcUSoK91IfuNXXWWLN7hz+YokwxNjHkSeyNXOexfWnIAvejYuu/gXDENDV4TJF9bqh6V0e02rhbprshVOEpuVwUFIOpgRl37SK9gjVqGWdKD/A45evGYJP6mcxUnL4qJiaDu5Xt3GcDzeCRE3N/U0KPsOd2CgLBfhF14czHvD6oCKDRsh6XD1VCZ+cNbQu72EFeISCRAW4VzeoDvrXqbyPhlLpImm0PJQ2kwuACcHwHr6qMaBL5fzq3T+KYSzYKQtAgMBAAECggEATVRgnJVAXdVyQX6WxU7aih5xvj7uwzZV0OyPwdQy3BpLSycWG5wmRl7Q6ZgD+/APDPRdVKluPdsDF+FUqrS227D0zKgTQpnoUgMC212LPgskQpXOmOfXAP6fqKO9PaHyqqmLY5Y/Tq+d514z0WlqFS6SN2dmJPMHzU956dntjAHx+9LtU9qJLzRdrrI33NywpT03L3rRSOgYcGnALETz3nj4u8rGtsvN/QN8y0iTAbXi/+AXgNs43/BQpWehbhEIIj+oXPB92GyPSvAkzYZfQ0ffdUzbkWnAzSaN0z6t/03Ano7QJFBJNx/7GUe+6yKDP0zViaCo3y3UFv0IT5TeYQKBgQDi6HSM9FnBSX4ojUmeO16yDsSZuzAJJ4I4CQq2WrmIgXcbMxLuppbvM+q0iW1PI5ERIJ+h8rp5yBic0YEaMb6Css+uFdEF/18AicXJSYRp8T+X5OG7Mhrza+rJOrJlTjHzI5qwLwca5BDDfUXj+PvsFdOPVb/O7PP1J68WfO6gSQKBgQDYwKMQ9WUhnvIEh9qVBby+CYcqAgX+dTVy0Hf3i7Of3gC/5bVLALsG3t5hgRuNymaCkRWeRijTRxwnkxZJ05isJNwt1bYy4NEeFJUpXUzEJEKxlAK1F/bTltX88fEUaExRNBFuh91uHYluq2a2XDn4tLdbEpJC3Ef19JJArBzsxQKBgAynmDBwRD0yYxXR42QuvXZCupY0SVaJXIrRfkZzQtupFMJwk8K5ibtnctSEwZLjUejZn+2BQwMdtLmyOXgDhDN303tK/jBOcLbv+BbkwbzC1qAbBLfS8IvY3exBGMfrl3+O4canqMbIJ2MvrmErdqlRAk6BIsRglK58exhO+WP5AoGANcOSryIvc6d5YKZSEaTarEiwvjrCQdvQ5inPmBeO9pialv7jeTc1LP8bKhRcQU9zHe/e7ON6PO3mjepuHOHffNOnyba4+uXI+S0h0qDR6dUUtfeAtGq9Tr6bVaKtqeI1C+9eY4xP4IBzFoBtec5mkspAsNZqcSsyrk979465ngECgYAi+VDDSKk6ZxkXyOb1cvTsaj3vQjEoFwJoWHpu51IlUGcXbheOa6Y5aWEaue4yXPsrresiAO2QIpb5WY/oVl8EFAs5nO2SW/sfsUxbrWpEF0pSIl0Wf5OtdMdS8vrKYMwDdeVgpP8ao/E46hSoaEYZuuspmTDKazGSyHhtyMOkPQ==\\n-----END PRIVATE KEY-----\"}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Sign",
+            "x-testDescription": ""
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/verify": {
+      "post": {
+        "description": "",
+        "summary": "Verify",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "VerifyPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/VerifyRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/verify",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"message\":{\"expirationDate\":1561050357,\"enabled\":\"true\",\"invitationSender\":\"0xb12233344de2\",\"invitationReceiver\":\"0xb12233344de3\"},\"publicKey\":\"-----BEGIN CERTIFICATE-----\\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\\n-----END CERTIFICATE-----\",\"signature\":\"4a6fd13c24e93f43a0c9a1b231e01c9105b93b1bc1fe36f32e401cdc6c16e9a149a16eb2e527b69f0a99b508047f37c7f887664bf59d8c956deebfd3ddb4e86d549cf30ed0769324f5db2e28eae375023684ecf2795d0ba966a5102dc6ed15ddb7f97fb270637243353a758ebd002e79e84a79ea4a28381e2836e5166420b5a90481d6c46eb004e025c3381dd2ecd871569e684595760db6484c0831ce280344dea38beecfeccdb370f327ed92ffc35dd4e4e17bca83cb8f10df6db9b5f37119096d64f4db933b201bdec9de4aee659123f422285fb997ca71a15e63a7c444c85c202bdae8d472dd5e021ac18f07303283871570dd6a030eeb81f063759073e9\"}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Verify",
+            "x-testDescription": ""
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "description": "",
+        "summary": "Create a user",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "UsersPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateAUserrequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/users",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"sender\":\"enrique\",\"message\":{\"name\":\"enrique\",\"address\":\"0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE8\",\"publicKey\":\"-----BEGIN CERTIFICATE-----\\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\\n-----END CERTIFICATE-----\",\"cipherKey\":\"enriquecipherKey\",\"email\":\"enrique@mail.com\",\"invitationID\":\"5b3644e3eed40e530d916d8d\",\"pass\":\"99b80c727abc1c40cc908d370f7031e54caf8793f7bbca42030bdf8de5e40ea0\"},\"signature\":\"b320a54d8ff4e1d0fc1895901e70ca1050331958302706c143b52a7ff41200d6d95f9aa48af1978ac4b7e8bc079afa3cb4d947cb51d5db8428b10e02bf8ec109ed7951f0812b834667d62246f7edd279893b074a53a8a2aceff8dcf6caac1221ca9c985350738f34fb7f63809feee23cf936b6582eaa4c2ca14e16193c3abf871a36c1609e7782041f9ffeb9fd0065635f0c2e63a4dc9eef115e92b09d44d3152513ec793b6e625d019a89c9bf874d4691e000508dd6ba0385753bc6a4d886030c166fbcf84e46af4659eeeeae64319c917ca2cde2649c8335b43f473bf0016ef3a059c2f6195726bb3c689fdea95d0662ec9e04821b551b3fc13b2aeda08122\"}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Create a user",
+            "x-testDescription": ""
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/invitations": {
+      "post": {
+        "description": "",
+        "summary": "Create an invitation",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "InvitationsPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateAnInvitationrequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/invitations",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"address\":\"0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE7\",\"message\":{\"expirationDate\":1561050357,\"enabled\":\"true\",\"invitationSender\":\"0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE7\",\"invitationReceiver\":\"0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE8\"},\"signature\":\"8bf6c555310da02713127381169af1ebd91dfe8c4e309740ba3e7776847f95f8645d1a04f08bafcb71d6340815477883b41344c643660e234a96c8777e516fb006cbe86d264b635747e267f5c0574d083d6119d9636761d2337cdafa09e3a5a4f1220a662fda62efa6f3415491350cea2a03c89839ca9a068628efe967dd3bb0c78965b676094ce1022ca772554da57b1bf9f8a964ea02c01b00f90601281984df6c82c0da8d2553398f8ad83709b0cdb058358e2f5cc0251c0173d3243259713b8e115c8aee2e2dc73ab06c9946cc3ecac440703c0fb66eeaa4cadf0fe5abe538d00d905a89adbe4404fa1d7aafe2532e50de89d05badee72bb872b2f47dbb4\"}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Create an invitation",
+            "x-testDescription": ""
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/users/": {
+      "get": {
+        "description": "",
+        "summary": "List all users",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "UsersGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/users/"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "List all users",
+            "x-testDescription": ""
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/invitations/5b2bba6a042ab5cb4c7aebfa": {
+      "get": {
+        "description": "",
+        "summary": "Read an invitation",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Invitations5b2bba6a042ab5cb4c7aebfaGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/invitations/5b2bba6a042ab5cb4c7aebfa"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Read an invitation",
+            "x-testDescription": ""
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "put": {
+        "description": "",
+        "summary": "Update an invitation",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Invitations5b2bba6a042ab5cb4c7aebfaPut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateAnInvitationrequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "PUT",
+              "uri": "/invitations/5b2bba6a042ab5cb4c7aebfa",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"enabled\":true,\"_id\":\"5b2bba6a042ab5cb4c7aebfa\",\"expirationDate\":1561050357,\"pass\":\"invitation message\",\"invitationSender\":\"0x12233344de\",\"__v\":0}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Update an invitation",
+            "x-testDescription": ""
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/initializeDB": {
+      "post": {
+        "description": "",
+        "summary": "Initialize DB",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "InitializeDBPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/InitializeDbrequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/initializeDB",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"name\":\"Admin_alice\",\"address\":\"0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE7\",\"publicKey\":\"-----BEGIN CERTIFICATE-----\\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\\n-----END CERTIFICATE-----\",\"cipherKey\":\"admincipherKey\",\"email\":\"admin@mail.com\",\"invitationID\":\"0\"}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Initialize DB",
+            "x-testDescription": ""
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UpdateAUserrequest": {
+      "title": "Update a userRequest",
+      "example": {
+        "_id": "1234",
+        "name": "username",
+        "address": "0x12233344de",
+        "publicKey": "qqqqqqqqwwwwwweeeeeeeee",
+        "cipherKey": "mckvdmklmdkl",
+        "email": "userEmail",
+        "invitationID": "002"
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "description": "",
+          "example": "1234",
+          "type": "string"
+        },
+        "name": {
+          "description": "",
+          "example": "username",
+          "type": "string"
+        },
+        "address": {
+          "description": "",
+          "example": "0x12233344de",
+          "type": "string"
+        },
+        "publicKey": {
+          "description": "",
+          "example": "qqqqqqqqwwwwwweeeeeeeee",
+          "type": "string"
+        },
+        "cipherKey": {
+          "description": "",
+          "example": "mckvdmklmdkl",
+          "type": "string"
+        },
+        "email": {
+          "description": "",
+          "example": "userEmail",
+          "type": "string"
+        },
+        "invitationID": {
+          "description": "",
+          "example": "002",
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id",
+        "name",
+        "address",
+        "publicKey",
+        "cipherKey",
+        "email",
+        "invitationID"
+      ]
+    },
+    "SignRequest": {
+      "title": "SignRequest",
+      "example": {
+        "message": {
+          "name": "enrique",
+          "address": "0x0ad92B0Cfd5E7D4638c94546883fd03254a0",
+          "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\n-----END CERTIFICATE-----",
+          "cipherKey": "enriquecipherKey",
+          "email": "enrique@mail.com",
+          "invitationID": "5b3644e3eed40e530d916d8d"
+        },
+        "privateKey": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDAHuE3YiIh2R+236gm83NKnAfZHDOwRuSdqoIfz8FFlYigf/V3q8gWLRS+Lp4C5HU+E0HCXPrNEn8j3OnEVF5LcUSoK91IfuNXXWWLN7hz+YokwxNjHkSeyNXOexfWnIAvejYuu/gXDENDV4TJF9bqh6V0e02rhbprshVOEpuVwUFIOpgRl37SK9gjVqGWdKD/A45evGYJP6mcxUnL4qJiaDu5Xt3GcDzeCRE3N/U0KPsOd2CgLBfhF14czHvD6oCKDRsh6XD1VCZ+cNbQu72EFeISCRAW4VzeoDvrXqbyPhlLpImm0PJQ2kwuACcHwHr6qMaBL5fzq3T+KYSzYKQtAgMBAAECggEATVRgnJVAXdVyQX6WxU7aih5xvj7uwzZV0OyPwdQy3BpLSycWG5wmRl7Q6ZgD+/APDPRdVKluPdsDF+FUqrS227D0zKgTQpnoUgMC212LPgskQpXOmOfXAP6fqKO9PaHyqqmLY5Y/Tq+d514z0WlqFS6SN2dmJPMHzU956dntjAHx+9LtU9qJLzRdrrI33NywpT03L3rRSOgYcGnALETz3nj4u8rGtsvN/QN8y0iTAbXi/+AXgNs43/BQpWehbhEIIj+oXPB92GyPSvAkzYZfQ0ffdUzbkWnAzSaN0z6t/03Ano7QJFBJNx/7GUe+6yKDP0zViaCo3y3UFv0IT5TeYQKBgQDi6HSM9FnBSX4ojUmeO16yDsSZuzAJJ4I4CQq2WrmIgXcbMxLuppbvM+q0iW1PI5ERIJ+h8rp5yBic0YEaMb6Css+uFdEF/18AicXJSYRp8T+X5OG7Mhrza+rJOrJlTjHzI5qwLwca5BDDfUXj+PvsFdOPVb/O7PP1J68WfO6gSQKBgQDYwKMQ9WUhnvIEh9qVBby+CYcqAgX+dTVy0Hf3i7Of3gC/5bVLALsG3t5hgRuNymaCkRWeRijTRxwnkxZJ05isJNwt1bYy4NEeFJUpXUzEJEKxlAK1F/bTltX88fEUaExRNBFuh91uHYluq2a2XDn4tLdbEpJC3Ef19JJArBzsxQKBgAynmDBwRD0yYxXR42QuvXZCupY0SVaJXIrRfkZzQtupFMJwk8K5ibtnctSEwZLjUejZn+2BQwMdtLmyOXgDhDN303tK/jBOcLbv+BbkwbzC1qAbBLfS8IvY3exBGMfrl3+O4canqMbIJ2MvrmErdqlRAk6BIsRglK58exhO+WP5AoGANcOSryIvc6d5YKZSEaTarEiwvjrCQdvQ5inPmBeO9pialv7jeTc1LP8bKhRcQU9zHe/e7ON6PO3mjepuHOHffNOnyba4+uXI+S0h0qDR6dUUtfeAtGq9Tr6bVaKtqeI1C+9eY4xP4IBzFoBtec5mkspAsNZqcSsyrk979465ngECgYAi+VDDSKk6ZxkXyOb1cvTsaj3vQjEoFwJoWHpu51IlUGcXbheOa6Y5aWEaue4yXPsrresiAO2QIpb5WY/oVl8EFAs5nO2SW/sfsUxbrWpEF0pSIl0Wf5OtdMdS8vrKYMwDdeVgpP8ao/E46hSoaEYZuuspmTDKazGSyHhtyMOkPQ==\n-----END PRIVATE KEY-----"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/Message"
+        },
+        "privateKey": {
+          "description": "",
+          "example": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDAHuE3YiIh2R+236gm83NKnAfZHDOwRuSdqoIfz8FFlYigf/V3q8gWLRS+Lp4C5HU+E0HCXPrNEn8j3OnEVF5LcUSoK91IfuNXXWWLN7hz+YokwxNjHkSeyNXOexfWnIAvejYuu/gXDENDV4TJF9bqh6V0e02rhbprshVOEpuVwUFIOpgRl37SK9gjVqGWdKD/A45evGYJP6mcxUnL4qJiaDu5Xt3GcDzeCRE3N/U0KPsOd2CgLBfhF14czHvD6oCKDRsh6XD1VCZ+cNbQu72EFeISCRAW4VzeoDvrXqbyPhlLpImm0PJQ2kwuACcHwHr6qMaBL5fzq3T+KYSzYKQtAgMBAAECggEATVRgnJVAXdVyQX6WxU7aih5xvj7uwzZV0OyPwdQy3BpLSycWG5wmRl7Q6ZgD+/APDPRdVKluPdsDF+FUqrS227D0zKgTQpnoUgMC212LPgskQpXOmOfXAP6fqKO9PaHyqqmLY5Y/Tq+d514z0WlqFS6SN2dmJPMHzU956dntjAHx+9LtU9qJLzRdrrI33NywpT03L3rRSOgYcGnALETz3nj4u8rGtsvN/QN8y0iTAbXi/+AXgNs43/BQpWehbhEIIj+oXPB92GyPSvAkzYZfQ0ffdUzbkWnAzSaN0z6t/03Ano7QJFBJNx/7GUe+6yKDP0zViaCo3y3UFv0IT5TeYQKBgQDi6HSM9FnBSX4ojUmeO16yDsSZuzAJJ4I4CQq2WrmIgXcbMxLuppbvM+q0iW1PI5ERIJ+h8rp5yBic0YEaMb6Css+uFdEF/18AicXJSYRp8T+X5OG7Mhrza+rJOrJlTjHzI5qwLwca5BDDfUXj+PvsFdOPVb/O7PP1J68WfO6gSQKBgQDYwKMQ9WUhnvIEh9qVBby+CYcqAgX+dTVy0Hf3i7Of3gC/5bVLALsG3t5hgRuNymaCkRWeRijTRxwnkxZJ05isJNwt1bYy4NEeFJUpXUzEJEKxlAK1F/bTltX88fEUaExRNBFuh91uHYluq2a2XDn4tLdbEpJC3Ef19JJArBzsxQKBgAynmDBwRD0yYxXR42QuvXZCupY0SVaJXIrRfkZzQtupFMJwk8K5ibtnctSEwZLjUejZn+2BQwMdtLmyOXgDhDN303tK/jBOcLbv+BbkwbzC1qAbBLfS8IvY3exBGMfrl3+O4canqMbIJ2MvrmErdqlRAk6BIsRglK58exhO+WP5AoGANcOSryIvc6d5YKZSEaTarEiwvjrCQdvQ5inPmBeO9pialv7jeTc1LP8bKhRcQU9zHe/e7ON6PO3mjepuHOHffNOnyba4+uXI+S0h0qDR6dUUtfeAtGq9Tr6bVaKtqeI1C+9eY4xP4IBzFoBtec5mkspAsNZqcSsyrk979465ngECgYAi+VDDSKk6ZxkXyOb1cvTsaj3vQjEoFwJoWHpu51IlUGcXbheOa6Y5aWEaue4yXPsrresiAO2QIpb5WY/oVl8EFAs5nO2SW/sfsUxbrWpEF0pSIl0Wf5OtdMdS8vrKYMwDdeVgpP8ao/E46hSoaEYZuuspmTDKazGSyHhtyMOkPQ==\n-----END PRIVATE KEY-----",
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "privateKey"
+      ]
+    },
+    "Message": {
+      "title": "Message",
+      "example": {
+        "name": "enrique",
+        "address": "0x0ad92B0Cfd5E7D4638c94546883fd03254a0",
+        "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\n-----END CERTIFICATE-----",
+        "cipherKey": "enriquecipherKey",
+        "email": "enrique@mail.com",
+        "invitationID": "5b3644e3eed40e530d916d8d"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "",
+          "example": "enrique",
+          "type": "string"
+        },
+        "address": {
+          "description": "",
+          "example": "0x0ad92B0Cfd5E7D4638c94546883fd03254a0",
+          "type": "string"
+        },
+        "publicKey": {
+          "description": "",
+          "example": "-----BEGIN CERTIFICATE-----\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\n-----END CERTIFICATE-----",
+          "type": "string"
+        },
+        "cipherKey": {
+          "description": "",
+          "example": "enriquecipherKey",
+          "type": "string"
+        },
+        "email": {
+          "description": "",
+          "example": "enrique@mail.com",
+          "type": "string"
+        },
+        "invitationID": {
+          "description": "",
+          "example": "5b3644e3eed40e530d916d8d",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "address",
+        "publicKey",
+        "cipherKey",
+        "email",
+        "invitationID"
+      ]
+    },
+    "VerifyRequest": {
+      "title": "VerifyRequest",
+      "example": {
+        "message": {
+          "expirationDate": 1561050357,
+          "enabled": "true",
+          "invitationSender": "0xb12233344de2",
+          "invitationReceiver": "0xb12233344de3"
+        },
+        "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\n-----END CERTIFICATE-----",
+        "signature": "4a6fd13c24e93f43a0c9a1b231e01c9105b93b1bc1fe36f32e401cdc6c16e9a149a16eb2e527b69f0a99b508047f37c7f887664bf59d8c956deebfd3ddb4e86d549cf30ed0769324f5db2e28eae375023684ecf2795d0ba966a5102dc6ed15ddb7f97fb270637243353a758ebd002e79e84a79ea4a28381e2836e5166420b5a90481d6c46eb004e025c3381dd2ecd871569e684595760db6484c0831ce280344dea38beecfeccdb370f327ed92ffc35dd4e4e17bca83cb8f10df6db9b5f37119096d64f4db933b201bdec9de4aee659123f422285fb997ca71a15e63a7c444c85c202bdae8d472dd5e021ac18f07303283871570dd6a030eeb81f063759073e9"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/Message4"
+        },
+        "publicKey": {
+          "description": "",
+          "example": "-----BEGIN CERTIFICATE-----\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\n-----END CERTIFICATE-----",
+          "type": "string"
+        },
+        "signature": {
+          "description": "",
+          "example": "4a6fd13c24e93f43a0c9a1b231e01c9105b93b1bc1fe36f32e401cdc6c16e9a149a16eb2e527b69f0a99b508047f37c7f887664bf59d8c956deebfd3ddb4e86d549cf30ed0769324f5db2e28eae375023684ecf2795d0ba966a5102dc6ed15ddb7f97fb270637243353a758ebd002e79e84a79ea4a28381e2836e5166420b5a90481d6c46eb004e025c3381dd2ecd871569e684595760db6484c0831ce280344dea38beecfeccdb370f327ed92ffc35dd4e4e17bca83cb8f10df6db9b5f37119096d64f4db933b201bdec9de4aee659123f422285fb997ca71a15e63a7c444c85c202bdae8d472dd5e021ac18f07303283871570dd6a030eeb81f063759073e9",
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "publicKey",
+        "signature"
+      ]
+    },
+    "Message4": {
+      "title": "Message4",
+      "example": {
+        "expirationDate": 1561050357,
+        "enabled": "true",
+        "invitationSender": "0xb12233344de2",
+        "invitationReceiver": "0xb12233344de3"
+      },
+      "type": "object",
+      "properties": {
+        "expirationDate": {
+          "description": "",
+          "example": 1561050357,
+          "type": "integer",
+          "format": "int32"
+        },
+        "enabled": {
+          "description": "",
+          "example": "true",
+          "type": "string"
+        },
+        "invitationSender": {
+          "description": "",
+          "example": "0xb12233344de2",
+          "type": "string"
+        },
+        "invitationReceiver": {
+          "description": "",
+          "example": "0xb12233344de3",
+          "type": "string"
+        }
+      },
+      "required": [
+        "expirationDate",
+        "enabled",
+        "invitationSender",
+        "invitationReceiver"
+      ]
+    },
+    "CreateAUserrequest": {
+      "title": "Create a userRequest",
+      "example": {
+        "sender": "enrique",
+        "message": {
+          "name": "enrique",
+          "address": "0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE8",
+          "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\n-----END CERTIFICATE-----",
+          "cipherKey": "enriquecipherKey",
+          "email": "enrique@mail.com",
+          "invitationID": "5b3644e3eed40e530d916d8d",
+          "pass": "99b80c727abc1c40cc908d370f7031e54caf8793f7bbca42030bdf8de5e40ea0"
+        },
+        "signature": "b320a54d8ff4e1d0fc1895901e70ca1050331958302706c143b52a7ff41200d6d95f9aa48af1978ac4b7e8bc079afa3cb4d947cb51d5db8428b10e02bf8ec109ed7951f0812b834667d62246f7edd279893b074a53a8a2aceff8dcf6caac1221ca9c985350738f34fb7f63809feee23cf936b6582eaa4c2ca14e16193c3abf871a36c1609e7782041f9ffeb9fd0065635f0c2e63a4dc9eef115e92b09d44d3152513ec793b6e625d019a89c9bf874d4691e000508dd6ba0385753bc6a4d886030c166fbcf84e46af4659eeeeae64319c917ca2cde2649c8335b43f473bf0016ef3a059c2f6195726bb3c689fdea95d0662ec9e04821b551b3fc13b2aeda08122"
+      },
+      "type": "object",
+      "properties": {
+        "sender": {
+          "description": "",
+          "example": "enrique",
+          "type": "string"
+        },
+        "message": {
+          "$ref": "#/definitions/Message6"
+        },
+        "signature": {
+          "description": "",
+          "example": "b320a54d8ff4e1d0fc1895901e70ca1050331958302706c143b52a7ff41200d6d95f9aa48af1978ac4b7e8bc079afa3cb4d947cb51d5db8428b10e02bf8ec109ed7951f0812b834667d62246f7edd279893b074a53a8a2aceff8dcf6caac1221ca9c985350738f34fb7f63809feee23cf936b6582eaa4c2ca14e16193c3abf871a36c1609e7782041f9ffeb9fd0065635f0c2e63a4dc9eef115e92b09d44d3152513ec793b6e625d019a89c9bf874d4691e000508dd6ba0385753bc6a4d886030c166fbcf84e46af4659eeeeae64319c917ca2cde2649c8335b43f473bf0016ef3a059c2f6195726bb3c689fdea95d0662ec9e04821b551b3fc13b2aeda08122",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sender",
+        "message",
+        "signature"
+      ]
+    },
+    "Message6": {
+      "title": "Message6",
+      "example": {
+        "name": "enrique",
+        "address": "0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE8",
+        "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\n-----END CERTIFICATE-----",
+        "cipherKey": "enriquecipherKey",
+        "email": "enrique@mail.com",
+        "invitationID": "5b3644e3eed40e530d916d8d",
+        "pass": "99b80c727abc1c40cc908d370f7031e54caf8793f7bbca42030bdf8de5e40ea0"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "",
+          "example": "enrique",
+          "type": "string"
+        },
+        "address": {
+          "description": "",
+          "example": "0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE8",
+          "type": "string"
+        },
+        "publicKey": {
+          "description": "",
+          "example": "-----BEGIN CERTIFICATE-----\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\n-----END CERTIFICATE-----",
+          "type": "string"
+        },
+        "cipherKey": {
+          "description": "",
+          "example": "enriquecipherKey",
+          "type": "string"
+        },
+        "email": {
+          "description": "",
+          "example": "enrique@mail.com",
+          "type": "string"
+        },
+        "invitationID": {
+          "description": "",
+          "example": "5b3644e3eed40e530d916d8d",
+          "type": "string"
+        },
+        "pass": {
+          "description": "",
+          "example": "99b80c727abc1c40cc908d370f7031e54caf8793f7bbca42030bdf8de5e40ea0",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "address",
+        "publicKey",
+        "cipherKey",
+        "email",
+        "invitationID",
+        "pass"
+      ]
+    },
+    "CreateAnInvitationrequest": {
+      "title": "Create an invitationRequest",
+      "example": {
+        "address": "0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE7",
+        "message": {
+          "expirationDate": 1561050357,
+          "enabled": "true",
+          "invitationSender": "0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE7",
+          "invitationReceiver": "0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE8"
+        },
+        "signature": "8bf6c555310da02713127381169af1ebd91dfe8c4e309740ba3e7776847f95f8645d1a04f08bafcb71d6340815477883b41344c643660e234a96c8777e516fb006cbe86d264b635747e267f5c0574d083d6119d9636761d2337cdafa09e3a5a4f1220a662fda62efa6f3415491350cea2a03c89839ca9a068628efe967dd3bb0c78965b676094ce1022ca772554da57b1bf9f8a964ea02c01b00f90601281984df6c82c0da8d2553398f8ad83709b0cdb058358e2f5cc0251c0173d3243259713b8e115c8aee2e2dc73ab06c9946cc3ecac440703c0fb66eeaa4cadf0fe5abe538d00d905a89adbe4404fa1d7aafe2532e50de89d05badee72bb872b2f47dbb4"
+      },
+      "type": "object",
+      "properties": {
+        "address": {
+          "description": "",
+          "example": "0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE7",
+          "type": "string"
+        },
+        "message": {
+          "$ref": "#/definitions/Message4"
+        },
+        "signature": {
+          "description": "",
+          "example": "8bf6c555310da02713127381169af1ebd91dfe8c4e309740ba3e7776847f95f8645d1a04f08bafcb71d6340815477883b41344c643660e234a96c8777e516fb006cbe86d264b635747e267f5c0574d083d6119d9636761d2337cdafa09e3a5a4f1220a662fda62efa6f3415491350cea2a03c89839ca9a068628efe967dd3bb0c78965b676094ce1022ca772554da57b1bf9f8a964ea02c01b00f90601281984df6c82c0da8d2553398f8ad83709b0cdb058358e2f5cc0251c0173d3243259713b8e115c8aee2e2dc73ab06c9946cc3ecac440703c0fb66eeaa4cadf0fe5abe538d00d905a89adbe4404fa1d7aafe2532e50de89d05badee72bb872b2f47dbb4",
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "message",
+        "signature"
+      ]
+    },
+    "UpdateAnInvitationrequest": {
+      "title": "Update an invitationRequest",
+      "example": {
+        "enabled": true,
+        "_id": "5b2bba6a042ab5cb4c7aebfa",
+        "expirationDate": 1561050357,
+        "pass": "invitation message",
+        "invitationSender": "0x12233344de",
+        "__v": 0
+      },
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "description": "",
+          "example": true,
+          "type": "boolean"
+        },
+        "_id": {
+          "description": "",
+          "example": "5b2bba6a042ab5cb4c7aebfa",
+          "type": "string"
+        },
+        "expirationDate": {
+          "description": "",
+          "example": 1561050357,
+          "type": "integer",
+          "format": "int32"
+        },
+        "pass": {
+          "description": "",
+          "example": "invitation message",
+          "type": "string"
+        },
+        "invitationSender": {
+          "description": "",
+          "example": "0x12233344de",
+          "type": "string"
+        },
+        "__v": {
+          "description": "",
+          "example": 0,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "enabled",
+        "_id",
+        "expirationDate",
+        "pass",
+        "invitationSender",
+        "__v"
+      ]
+    },
+    "InitializeDbrequest": {
+      "title": "Initialize DBRequest",
+      "example": {
+        "name": "Admin_alice",
+        "address": "0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE7",
+        "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\n-----END CERTIFICATE-----",
+        "cipherKey": "admincipherKey",
+        "email": "admin@mail.com",
+        "invitationID": "0"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "",
+          "example": "Admin_alice",
+          "type": "string"
+        },
+        "address": {
+          "description": "",
+          "example": "0x0ad92B0Cfd5E7D4638c94546883fd03254a01AE7",
+          "type": "string"
+        },
+        "publicKey": {
+          "description": "",
+          "example": "-----BEGIN CERTIFICATE-----\nMIIDPjCCAiYCCQDjPaj4hdeMFTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJlczELMAkGA1UECAwCbWExCzAJBgNVBAcMAm1hMQswCQYDVQQKDAJhbDELMAkGA1UECwwCYWwxCzAJBgNVBAMMAmFsMREwDwYJKoZIhvcNAQkBFgJhbDAeFw0xODA2MTkxNzE2NTFaFw0xOTA2MTkxNzE2NTFaMGExCzAJBgNVBAYTAmVzMQswCQYDVQQIDAJtYTELMAkGA1UEBwwCbWExCzAJBgNVBAoMAmFsMQswCQYDVQQLDAJhbDELMAkGA1UEAwwCYWwxETAPBgkqhkiG9w0BCQEWAmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwB7hN2IiIdkftt+oJvNzSpwH2RwzsEbknaqCH8/BRZWIoH/1d6vIFi0Uvi6eAuR1PhNBwlz6zRJ/I9zpxFReS3FEqCvdSH7jV11lize4c/mKJMMTYx5EnsjVznsX1pyAL3o2Lrv4FwxDQ1eEyRfW6oeldHtNq4W6a7IVThKblcFBSDqYEZd+0ivYI1ahlnSg/wOOXrxmCT+pnMVJy+KiYmg7uV7dxnA83gkRNzf1NCj7DndgoCwX4RdeHMx7w+qAig0bIelw9VQmfnDW0Lu9hBXiEgkQFuFc3qA7616m8j4ZS6SJptDyUNpMLgAnB8B6+qjGgS+X86t0/imEs2CkLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWJoeQ9uhuewNZm4jweOGzJ/QYx2h5jpBrka0f1Bd5mTxcqB9J/IjkeCjK9Qo2wffQVLxa9jW9/Q8eqUdvqhbRluyQupvJeifs2B710nZgAEp5VcpaSJNhj4YQIaw640f5FLHu4Rt8POezHwvSuGedalFXsQO/PJV3IKg6OpNZyLhT2c0H2NqOHJmnV3ltU4jR2aVU/lWLCvH0Lzlb3R/NAUvqgvDTugUkt2WoV+7sw57rEhNI4r5v4FEd1cbSOFu2Xnfk2Upgz5wswdkF8faZQR4LyDj4ZlCD5RSjaHaMLXJe7CZU33zHwaUbig+fPW4JYrDq7HZHT7i2+KsNLMil\n-----END CERTIFICATE-----",
+          "type": "string"
+        },
+        "cipherKey": {
+          "description": "",
+          "example": "admincipherKey",
+          "type": "string"
+        },
+        "email": {
+          "description": "",
+          "example": "admin@mail.com",
+          "type": "string"
+        },
+        "invitationID": {
+          "description": "",
+          "example": "0",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "address",
+        "publicKey",
+        "cipherKey",
+        "email",
+        "invitationID"
+      ]
+    }
+  }
+}

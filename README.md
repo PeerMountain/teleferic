@@ -47,15 +47,17 @@ npm startDaemon
 
 ## Endpoints
 
-Please read the swagger [swagger file](https://github.com/PeerMountain/teleferic/blob/mvp-0.2/API/definition/Swagger_API_description.json) for details on the endpoints and how to interact with them.
+Please read the swagger [swagger file](https://github.com/PeerMountain/teleferic/blob/mvp-0.2/API/definition/Teleferic_Swagger.json) for details on the endpoints and how to interact with them.
 
-A postman collection is also provided [here](https://github.com/PeerMountain/teleferic/blob/mvp-0.2/API/definition/mvp.postman_collection.json) with examples for all petitions.
+A postman collection is also provided [here](https://github.com/PeerMountain/teleferic/blob/mvp-0.2/API/definition/Teleferic_postman_collection.json) with examples for all petitions.
 
 
 ## Authors
 
 * **Alicia Lombarte** - [AliciaLombarte](https://github.com/AliciaLombarte)
 * **Enrique Alcázar** - [kikoncuo](https://github.com/kikoncuo)
+* **Nacho Althabe** - [nachoalthabe](https://github.com/nachoalthabe)
+
 
 See also the list of [contributors](https://github.com/PeerMountain/teleferic/graphs/contributors) who participated in this project.
 
