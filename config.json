@@ -1,3 +1,5 @@
 {
-  "mongoDBURI" : "mongodb://localhost/TelefericDB"
+  "mongoDBURI" : "mongodb://localhost/TelefericDB",
+  "serverKey"	: "/var/www/server.key",
+  "serverCrt": "/var/www/server.crt"
 }
