@@ -14,7 +14,6 @@ const options = {
   key: fs.readFileSync(config.serverKey),
   cert: fs.readFileSync(config.serverCrt)
 };
-
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 //mongoose.connect('mongodb://localhost/TelefericDB');
