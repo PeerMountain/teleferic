@@ -4,8 +4,11 @@ User = mongoose.model('Users'),
 keyController = require('./KeyController'),
 invitationController = require('./InvitationController');
 const crypto = require('crypto');
-
-
+var config = require("../../config.json");
+const options = {
+  key: fs.readFileSync(config.serverKey),
+  cert: fs.readFileSync(config.serverCrt)
+};
 
 function list_all_users(req, res) {
  User.find({}, function(err, user) {
@@ -24,24 +27,26 @@ function create_a_user(req, res) {
       if (req.body.message.pass == "99b80c727abc1c40cc908d370f7031e54caf8793f7bbca42030bdf8de5e40ea0") {
         var verificationResult = keyController.verifyExternal(req.body.message, req.body.message.publicKey, req.body.signature);
         if(verificationResult.verified){
-         new_user.save(function(err, user) {
-          if (err){
-            res.status(500);
-            console.log("Error saving user");
-            err.Error = "Error saving user";
-            res.send(err);
-          }else{
-            res.status(200);
-            console.log("User created with master invitation");
-            res.json(user);
-          }
-        });
-       }else{
+          req.body.message.cipherKey = cipher(req.body.message.cipherKey);
+          var new_user_cipher = new User(req.body.message);
+          new_user_cipher.save(function(err, user) {
+            if (err){
+              res.status(500);
+              console.log("Error saving user");
+              err.Error = "Error saving user";
+              res.send(err);
+            }else{
+              res.status(200);
+              console.log("User created with master invitation");
+              res.json(user);
+            }
+          });
+        }else{
           res.status(406);
           console.log("Error signature did not match.");
           res.json({"Error" : "signature did not match."});
         }
-       }else if(invitation == null||invitation.Error != undefined){
+      }else if(invitation == null||invitation.Error != undefined){
         res.status(404);
         console.log("Error no invitation with that ID found.");
         res.json({"Error" : "no invitation with that ID found."});
@@ -55,7 +60,10 @@ function create_a_user(req, res) {
             hash.update(req.body.message.address+user[0].cipherKey);
             if(hash.digest('hex') == invitation.pass){
               if(invitation.enabled){
-                new_user.save(function(err, user) {
+                req.body.message.cipherKey = cipher(req.body.message.cipherKey);
+                var new_user_cipher = new User(req.body.message);
+                new_user_cipher.save(function(err, user) {
+
                   if (err){
                     res.status(500);
                     console.log("Error saving user");
@@ -146,11 +154,36 @@ async function read_a_user_by_address_local (address) {
 
 function update_a_user(req, res) {
   //implement checks and signature
- User.findOneAndUpdate({_id: req.params.userId}, req.body, {new: true}, function(err, user) {
-   if (err)
-     res.send(err);
-   res.json(user);
- });
+  (async() => {
+    var sender =  await read_a_user_by_address_local(req.body.address);
+    if(sender[0] == null){
+      res.status(404);
+      console.log("User address does not exist");
+      res.json({"Error" : "User address does not exist"});
+    }else{
+      console.log(sender);
+      var verificationResult = keyController.verifyExternal(req.body.message, sender[0].publicKey, req.body.signature);
+      if(verificationResult.verified){
+        console.log(req.params.userId);
+        console.log(sender[0]._id);
+        if(req.params.userId == sender[0]._id){
+          User.findOneAndUpdate({_id: req.params.userId}, req.body.message, {new: true}, function(err, user) {
+           if (err)
+             res.send(err);
+           res.json(user);
+         });
+        }else{
+          res.status(406);
+          console.log("Error, you are not the user you are trying to update.");
+          res.json({"Error" : "you are not the user you are trying to update."});
+        }
+      }else{
+        res.status(406);
+        console.log("Error, signature did not match.");
+        res.json({"Error" : "signature did not match."});
+      }
+    }
+  })();
 };
 
 function delete_a_user(req, res) {
@@ -184,6 +217,32 @@ function create_first_user(user) {
   });
 };
 
+function cipher(plaintext) {
+ cipher = crypto.createCipher('aes-256-cbc', options.cert);
+  var encryptedtext = cipher.update(plaintext, 'utf8', 'hex');
+  encryptedtext += cipher.final('hex');
+  console.log('original  :', plaintext); 
+  console.log('encrypted :', encryptedtext);
+  return encryptedtext.toString();
+
+ // var cipher = crypto.createCipher('aes-256-ecb', options.cert);
+ // return cipher.update(plaintext, 'utf8', 'hex') + cipher.final('hex');
+}
+function decipher(encryptedtext){
+  decipher = crypto.createDecipher('aes-256-cbc', options.key);
+  decipher.setAutoPadding(false);
+
+  var decryptedtext = decipher.update(encryptedtext, 'base64', 'hex');
+  decryptedtext += decipher.final('hex');
+  console.log('encrypted  :', encryptedtext); 
+  console.log('decrypted :', decryptedtext);
+  return decryptedtext.toString();
+
+  // var cipher = crypto.createDecipher('aes-256-ecb', options.key);
+  // return cipher.update(encryptedtext, 'hex', 'utf8') + cipher.final('utf8');
+
+}
+
 module.exports.list_all_users = list_all_users;
 module.exports.create_a_user = create_a_user;
 module.exports.http_read_a_user = http_read_a_user;
@@ -192,3 +251,4 @@ module.exports.update_a_user = update_a_user;
 module.exports.delete_a_user = delete_a_user;
 module.exports.create_first_user = create_first_user;
 module.exports.read_a_user_by_address_http = read_a_user_by_address_http;
+module.exports.decipher = decipher;

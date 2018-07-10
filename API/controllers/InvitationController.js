@@ -21,8 +21,9 @@ exports.create_a_invitation = function(req, res) {
   var receiver = req.body.message.invitationReceiver;
   var sender = await userController.read_a_user_by_address(req.body.message.invitationSender);
   var hash = crypto.createHash('sha256');
-  hash.update(receiver + sender[0].cipherKey);
-  console.log("hash(receiverAddress+senderCipherKey)"+receiver + sender[0].cipherKey);
+  var senderCipherKey = userController.decipher(sender[0].cipherKey);
+  hash.update(receiver + senderCipherKey);
+  console.log("hash(receiverAddress+senderCipherKey)"+receiver + senderCipherKey);
 
    if(sender.Error == undefined){
      var verificationResult = keyController.verifyExternal(req.body.message, sender[0].publicKey, req.body.signature);

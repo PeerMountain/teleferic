@@ -22,7 +22,9 @@ module.exports = function(app) {
 
 	app.route('/sign')
 	.post(keyController.sign);
-
+	
+	app.route('/signCipher')
+	.post(keyController.cifradoExternal);
 
 	app.route('/verify')
 	.post(keyController.httpVerify);
@@ -33,7 +35,7 @@ module.exports = function(app) {
 
 	app.route('/invitations/:invitationId')
 	.get(invitationController.http_read_a_invitation)
-  .put(invitationController.update_a_invitation)//TODO: do the checks
+  	.put(invitationController.update_a_invitation)//TODO: do the checks
 	.delete(invitationController.delete_a_invitation);
 
 	app.route('/initializeDB')

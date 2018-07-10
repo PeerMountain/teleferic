@@ -33,6 +33,27 @@ exports.sign = function(req, res) {
 	const signature_hex = signature.toString('hex');
 	res.send(signature_hex);
 };
+exports.cifradoExternal = function(message, publicKey) {
+	const signer = crypto.createSign('sha256');
+	if (typeof(message) != 'string') {
+		message = JSON.stringify(message);
+	}
+	var hash = crypto.createHash('sha256');
+	hash.update(message);
+	signer.update(hash.digest('hex'));
+	signer.end();
+
+	const signature = signer.sign(publicKey);
+	const signature_hex = signature.toString('hex');
+	return{
+		c : signature_hex
+	}
+
+ var cipher = crypto.createCipher(algorithm,password)
+  var crypted = cipher.update(text,'utf8','hex')
+  crypted += cipher.final('hex');
+  return crypted;
+};
 
 exports.verifyExternal = function(message, publicKey, signature){
 	return verify(message, publicKey, signature);
